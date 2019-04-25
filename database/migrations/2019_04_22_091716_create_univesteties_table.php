@@ -21,6 +21,7 @@ class CreateUnivestetiesTable extends Migration
             $table->text('desc');
             $table->string('price');
             $table->string('year');
+            $table->boolean('type');
             $table->unsignedBigInteger('country_id')->index();
             $table->foreign('country_id')->references('id')->on('countries');
             $table->timestamps();

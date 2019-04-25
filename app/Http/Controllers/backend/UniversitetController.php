@@ -63,6 +63,7 @@ class UniversitetController extends Controller
         $home->desc = $request->desc;
         $home->price = $request->price;
         $home->year = $request->year;
+        $home->type = $request->type;
         $home->country_id = $request->country_id;
         $home->save();
 
@@ -121,6 +122,7 @@ class UniversitetController extends Controller
         $universty->desc = $request->desc;
         $universty->price = $request->price;
         $universty->year = $request->year;
+        $universty->type = $request->type;
         $universty->country_id = $request->country_id;
         $universty->update();
         return back();

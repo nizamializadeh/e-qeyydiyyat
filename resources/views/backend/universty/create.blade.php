@@ -63,6 +63,16 @@
 
                 </div>
             </div>
+            <div class="col-sm-6">
+                <div class="form-group form-float">
+                    <div class="demo-radio-button">
+                        <input name="type" type="radio" id="radio_1" value="0">
+                        <label for="radio_1">popular </label>
+                        <input name="type" type="radio" id="radio_2"  checked="" value="1">
+                        <label for="radio_2">don't popular</label>
+                    </div>
+                </div>
+            </div>
             <div class="col-sm-12">
                 <div class="form-group form-float">
                     <div class="form-line">

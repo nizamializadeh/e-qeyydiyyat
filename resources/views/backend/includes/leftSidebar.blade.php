@@ -47,6 +47,9 @@
                         <li class="{{request()->routeIs('slider.index') ? 'active' : ''}}">
                             <a href="{{route('slider.index')}}">Sliders</a>
                         </li>
+                        <li class="{{request()->routeIs('experience.index') ? 'active' : ''}}">
+                            <a href="{{route('experience.index')}}">Experience</a>
+                        </li>
                         <li class="{{request()->routeIs('universty.index') ? 'active' : ''}}">
                             <a href="{{route('universty.index')}}">Universty </a>
                         </li>

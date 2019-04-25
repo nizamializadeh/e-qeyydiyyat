@@ -8,7 +8,7 @@
             <div class="col-sm-12">
                 <div class="form-group form-float">
                     <div class="form-line">
-                        <input name="image" type="file" required class="form-control hidden post-image" id="postImage">
+                        <input name="prflimg" type="file" required class="form-control hidden post-image" id="postImage">
                         <label for="postImage" style="cursor: pointer">
                             <img width="150px;" class="img-responsive thumbnail post-img-preview" src="{{asset('photo/'.$universty->prflimg)}}">
                         </label>
@@ -65,7 +65,24 @@
 
                     </div>
                 </div>
+                <div class="col-sm-6">
+                    <div class="form-group form-float">
+                        <div class="demo-radio-button">
+                            @if( $universty->type ==0)
+                                <input name="type" type="radio" id="radio_1" checked value="0">
+                                <label for="radio_1">popular</label>
+                                <input name="type" type="radio" id="radio_2" value="1">
+                                <label for="radio_2">don't popular</label>
+                            @else
+                                <input name="type" type="radio" id="radio_1" value="0">
+                                <label for="radio_1"> popular</label>
+                                <input name="type" type="radio" id="radio_2" checked value="1">
+                                <label for="radio_2">don't popular</label>
+                            @endif
 
+                        </div>
+                    </div>
+                </div>
                 <div class="col-sm-12">
                     <div class="form-group form-float">
                         <div class="form-line">

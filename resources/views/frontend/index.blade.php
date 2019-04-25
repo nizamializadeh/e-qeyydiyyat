@@ -41,30 +41,27 @@
                             <div class="course-active next-prev-style">
                                 @foreach($univestetys as $univestety)
                                 <div class="course-items">
-                         @for($i=0;$i<1;$i++)
-                                        @foreach($univestetys[$i] as $univestetyx)
-
+                                        @foreach($univestety as $univestetyx)
                                             <div class="col-xs-12">
                                                 <div class="course-item">
                                                     <div class="course-img">
-                                                        <img src="img/cource/1.jpg" alt="" />
+                                                        <img src="{{asset('photo/'.$univestetyx->prflimg)}}" alt="" />
                                                     </div>
                                                     <div class="course-content">
-                                                        <h3><a href="#">Web Design & DEVELOPMENT</a></h3>
+                                                        <h3><a href="#">{{$univestetyx->header}}</a></h3>
                                                         <div class="course-meta">
                                                             <ul>
-                                                                <li><i class="fa fa-folder-o"></i> Mathematics, Science</li>
-                                                                <li><i class="fa fa-clock-o"></i> {{$univestetyx->header}}</li>
+                                                                <li><i class="fa fa-globe" aria-hidden="true"></i>{{$univestetyx->name}}</li>
+                                                                <li><i class="fa fa-clock-o"></i> {{$univestetyx->year}}</li>
                                                             </ul>
                                                         </div>
-                                                        <p>The face of the moon was in shadow.The spectacle before us was indeed sublime.All their equipment and instruments are alive.</p>
-                                                        <a href="#" class="btn-style">apply now</a>
+                                                        <p>
+                                                        </p>
+                                                        <a href="{{ route('universitydetail', $univestetyx->id) }}" class="btn-style">Ətraflı</a>
                                                     </div>
                                                 </div>
                                             </div>
                                         @endforeach
-                             @endfor
-
                                 </div>
                                 @endforeach
                                 {{--<div class="course-items">--}}

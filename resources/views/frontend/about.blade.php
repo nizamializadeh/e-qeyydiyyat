@@ -38,34 +38,16 @@
 <div class="funfact-area bg-img-3">
     <div class="container">
         <div class="row">
-            <div class="col-md-3 col-sm-6 col-xs-12">
-                <div class="funfact-wrap text-center">
-                    <span class="counter">3500</span>
-                    <h2>Year Of Experience</h2>
-                    <p>If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything.</p>
+            @foreach($experiences as $experience)
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <div class="funfact-wrap text-center">
+                        <span class="counter">{{$experience->count}}</span>
+                        <h2>{{$experience->header}}</h2>
+                        <p>{{$experience->desc}}</p>
+                    </div>
                 </div>
-            </div>
-            <div class="col-md-3 col-sm-6 col-xs-12">
-                <div class="funfact-wrap text-center">
-                    <span class="counter">470</span>
-                    <h2>Year Of Experience</h2>
-                    <p>If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything.</p>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-6 col-xs-12">
-                <div class="funfact-wrap text-center">
-                    <span class="counter">22233</span>
-                    <h2>Year Of Experience</h2>
-                    <p>If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything.</p>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-6 col-xs-12">
-                <div class="funfact-wrap text-center">
-                    <span class="counter">100000</span><span>%</span>
-                    <h2>Year Of Experience</h2>
-                    <p>If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything.</p>
-                </div>
-            </div>
+
+            @endforeach
         </div>
     </div>
 </div>

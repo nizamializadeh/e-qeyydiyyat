@@ -455,13 +455,15 @@
         var country_id =e.target.value;
         $.get('/ajax-set?country_id='+country_id,function (data) {
             console.log(data);
-            // $('#select4').empty();
-            // $.each(data,function (index,selectObj) {
-            //     $('#select4').append('<option value="'+selectObj.id  +'">'+selectObj.name+'</option>');
-            // });
+            $('#unis').empty();
+            $.each(data,function (index,uni) {
+                console.log(uni.id)
+                $('#unis').append('<div class="col-md-4">  <div class="course-item">   <div class="course-img"><img src="photo/'+uni.header+'" alt="" />    </div> <div class="course-content"> <h3><a href="#">'+uni.header+'</a></h3><div class="course-meta"><ul><li><i class="fa fa-globe" aria-hidden="true"></i>'+uni.name+'</li><li><i class="fa fa-clock-o"></i>'+uni.year+'</li></ul> <a href="/universitydetail'+uni.id+' " class="btn-style">Ətraflı</a>          </div>   </div></div>');
+            });
         });
     });
 </script>
 </body>
 
 </html>
+

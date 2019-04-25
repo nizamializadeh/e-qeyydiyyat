@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\frontend;
 
 use App\Country;
+use App\Experience;
 use App\Partner;
 use App\Select1;
 use App\Select2;
@@ -23,8 +24,10 @@ class SiteController extends Controller
     {
         $univestetys = DB::table('countries')
             ->join('univesteties', ['countries.id' => 'univesteties.country_id'])
+            ->where('univesteties.type', 0)
             ->select('univesteties.id','univesteties.img','univesteties.prflimg','countries.name','univesteties.header','univesteties.desc','univesteties.price','univesteties.year')
             ->get()->chunk(2);
+
         $sliders=Slider::all();
         $video =Video::all()->first();
         $partners =Partner::all();
@@ -40,12 +43,13 @@ class SiteController extends Controller
         $countries =Country::all();
         return view('frontend.universty',compact('univestetys','countries'));
     }
-    public function universitydetail()
+    public function universitydetail($id)
     {
         $univestetys = DB::table('countries')
             ->join('univesteties', ['countries.id' => 'univesteties.country_id'])
+            ->where('univesteties.id', $id)
             ->select('univesteties.id','univesteties.img','univesteties.prflimg','countries.name','univesteties.header','univesteties.desc','univesteties.price','univesteties.year')
-            ->get();
+            ->first();
         $countries =Country::all();
         return view('frontend.universtysingle',compact('univestetys','countries'));
     }
@@ -53,7 +57,8 @@ class SiteController extends Controller
     {
 
         $partners =Partner::all();
-        return view('frontend.about',compact('partners'));
+        $experiences =Experience::all();
+        return view('frontend.about',compact('partners','experiences'));
     }
     public function contact()
     {
@@ -63,13 +68,18 @@ class SiteController extends Controller
     public function set()
     {
         $country_id =input::get('country_id');
-        $unis=Univestety::where('country_id','=',$country_id)->get();
+        $unis = DB::table('countries')
+            ->join('univesteties', ['countries.id' => 'univesteties.country_id'])
+            ->where('countries.id', $country_id)
+            ->select('univesteties.id','univesteties.img','univesteties.prflimg','countries.name','univesteties.header','univesteties.desc','univesteties.price','univesteties.year')
+            ->get();
         return response()->json($unis);
     }
     public function set1()
     {
         $select_id =input::get('select_id');
         $select2=Select2::where('select1_id','=',$select_id)->get();
+
         return response()->json($select2);
     }
     public function set2()

@@ -20,7 +20,7 @@ Route::get('/universty', 'HomeController@index')->name('universty');
 
 Route::get('/','frontend\SiteController@index')->name('index');
 Route::get('/university ','frontend\SiteController@universty')->name('universty');
-Route::get('/universitydetail','frontend\SiteController@universitydetail')->name('universitydetail');
+Route::get('/universitydetail{id}','frontend\SiteController@universitydetail')->name('universitydetail');
 Route::get('/about','frontend\SiteController@about')->name('about');
 Route::get('/contact','frontend\SiteController@contact')->name('contact');
 Route::get('/ajax-set','frontend\SiteController@set')->name('set');
@@ -36,6 +36,7 @@ Route::group(['middleware' => 'admin','prefix' => 'admin'],function (){
 
     Route::resources([
         'slider' => 'backend\SliderController',
+        'experience' => 'backend\ExperienceController',
         'country' => 'backend\CountryController',
         'universty' => 'backend\UniversitetController',
         'partner' => 'backend\PartnerController',
